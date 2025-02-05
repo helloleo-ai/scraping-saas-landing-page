@@ -9,9 +9,14 @@ const exampleUrls = [
 ]
 
 const mockData = [
-  { url: 'https://example.com/product1', price: '$29.99', stock: 'In Stock' },
-  { url: 'https://example.com/product2', price: '$19.99', stock: 'Low Stock' },
-  { url: 'https://example.com/product3', price: '$39.99', stock: 'Out of Stock' },
+  { url: 'https://example.com/electronics/smartphone-x12', price: '$599.99', stock: 'In Stock' },
+  { url: 'https://example.com/electronics/wireless-earbuds', price: '$79.99', stock: 'Low Stock' },
+  { url: 'https://example.com/electronics/laptop-pro', price: '$1,299.99', stock: 'Out of Stock' },
+  { url: 'https://example.com/home/smart-thermostat', price: '$149.99', stock: 'In Stock' },
+  { url: 'https://example.com/home/robot-vacuum', price: '$249.99', stock: 'In Stock' },
+  { url: 'https://example.com/accessories/phone-case', price: '$24.99', stock: 'Low Stock' },
+  { url: 'https://example.com/wearables/fitness-tracker', price: '$89.99', stock: 'In Stock' },
+  { url: 'https://example.com/gaming/console-bundle', price: '$449.99', stock: 'Out of Stock' }
 ]
 
 export default function ScrapeDemo() {
