@@ -2,6 +2,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaSpinner } from 'react-icons/fa'
 
+const exampleUrls = [
+  'https://amazon.com/best-sellers',
+  'https://ebay.com/deals',
+  'https://walmart.com/clearance'
+]
+
 const mockData = [
   { url: 'https://example.com/product1', price: '$29.99', stock: 'In Stock' },
   { url: 'https://example.com/product2', price: '$19.99', stock: 'Low Stock' },
@@ -28,6 +34,18 @@ export default function ScrapeDemo() {
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8">Try It Now</h2>
         <div className="max-w-2xl mx-auto">
+          <div className="mb-4 flex flex-wrap gap-2">
+            {exampleUrls.map((exampleUrl, index) => (
+              <button
+                key={index}
+                type="button"
+                className="btn btn-sm btn-outline"
+                onClick={() => setUrl(exampleUrl)}
+              >
+                Try {exampleUrl.split('/')[2]}
+              </button>
+            ))}
+          </div>
           <form onSubmit={handleSubmit} className="mb-8">
             <div className="flex gap-2">
               <input
