@@ -1,4 +1,5 @@
 import { FaRobot, FaChartBar, FaUsers, FaQuestionCircle, FaTag } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 
 export default function Navbar() {
@@ -23,7 +24,7 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="navbar-end">
-            <a href="#register" className="btn btn-primary">Register</a>
+            <Link to="/register" className="btn btn-primary">Register</Link>
           </div>
         </div>
       </div>
