@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { FaSpinner } from 'react-icons/fa'
+import { FaSpinner, FaTable, FaChartBar } from 'react-icons/fa'
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 
 const exampleUrls = [
   'https://amazon.com/best-sellers',
@@ -23,6 +24,7 @@ export default function ScrapeDemo() {
   const [url, setUrl] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [results, setResults] = useState(null)
+  const [viewMode, setViewMode] = useState('table') // 'table' or 'chart'
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -74,8 +76,24 @@ export default function ScrapeDemo() {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="overflow-x-auto bg-base-100 rounded-lg shadow-lg p-4"
+                className="space-y-4"
               >
+                <div className="flex justify-end gap-2">
+                  <button
+                    className={`btn btn-sm ${viewMode === 'table' ? 'btn-primary' : 'btn-ghost'}`}
+                    onClick={() => setViewMode('table')}
+                  >
+                    <FaTable /> Table
+                  </button>
+                  <button
+                    className={`btn btn-sm ${viewMode === 'chart' ? 'btn-primary' : 'btn-ghost'}`}
+                    onClick={() => setViewMode('chart')}
+                  >
+                    <FaChartBar /> Chart
+                  </button>
+                </div>
+                
+                <div className="bg-base-100 rounded-lg shadow-lg p-4">
                 <table className="table w-full">
                   <thead>
                     <tr>
@@ -110,6 +128,34 @@ export default function ScrapeDemo() {
                     ))}
                   </tbody>
                 </table>
+                }
+                
+                {viewMode === 'chart' && (
+                  <div className="h-[400px] w-full">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <BarChart
+                        data={results}
+                        margin={{
+                          top: 20,
+                          right: 30,
+                          left: 20,
+                          bottom: 5,
+                        }}
+                      >
+                        <CartesianGrid strokeDasharray="3 3" />
+                        <XAxis dataKey="category" />
+                        <YAxis />
+                        <Tooltip />
+                        <Bar 
+                          dataKey="reviews" 
+                          fill="#3b82f6"
+                          name="Number of Reviews" 
+                        />
+                      </BarChart>
+                    </ResponsiveContainer>
+                  </div>
+                )}
+              </div>
               </motion.div>
             )}
           </div>
