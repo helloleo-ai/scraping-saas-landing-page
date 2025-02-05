@@ -94,6 +94,7 @@ export default function ScrapeDemo() {
                 </table>
               </motion.div>
             )}
+          </div>
         </div>
       </div>
     </section>
