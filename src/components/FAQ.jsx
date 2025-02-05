@@ -25,7 +25,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
   return (
-    <section className="py-20 px-4">
+    <section id="faq" className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">
           <span className="gradient-text">Common Questions</span>

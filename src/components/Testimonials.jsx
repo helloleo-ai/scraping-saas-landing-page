@@ -23,7 +23,7 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-radial from-white to-gray-50">
+    <section id="testimonials" className="py-20 px-4 bg-gradient-radial from-white to-gray-50">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl font-bold text-center mb-12">
           <span className="gradient-text">Trusted by Leaders</span>
