@@ -5,6 +5,7 @@ import ScrapeDemo from './components/ScrapeDemo'
 import Pricing from './components/Pricing'
 import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
+import Register from './components/Register'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Pricing />
       <Testimonials />
       <FAQ />
+      <Register />
     </div>
   )
 }

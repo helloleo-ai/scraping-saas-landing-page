@@ -23,7 +23,7 @@ export default function Navbar() {
             </ul>
           </div>
           <div className="navbar-end">
-            <button className="btn btn-primary">Get Started</button>
+            <a href="#register" className="btn btn-primary">Register</a>
           </div>
         </div>
       </div>
