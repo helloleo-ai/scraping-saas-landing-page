@@ -29,10 +29,16 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
         >
-          <button className="btn btn-primary btn-lg group">
-            Start Scraping Free
-            <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <div className="flex gap-4 justify-center">
+            <button className="btn btn-primary btn-lg group">
+              Start Scraping Free
+              <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </button>
+            <a href="#demo" className="btn btn-outline btn-lg group">
+              Try Demo
+              <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
         </motion.div>
       </div>
     </section>

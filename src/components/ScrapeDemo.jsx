@@ -37,7 +37,7 @@ export default function ScrapeDemo() {
   }
 
   return (
-    <section className="py-16 bg-base-200">
+    <section id="demo" className="py-16 bg-base-200">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8">Try It Now</h2>
         <div className="mx-auto max-w-6xl">
