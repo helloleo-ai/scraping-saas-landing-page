@@ -2,9 +2,12 @@ import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 
+import ScrapingAnimation from './ScrapingAnimation'
+
 const Hero = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center px-4">
+    <section className="min-h-screen flex items-center justify-center px-4 relative">
+      <ScrapingAnimation />
       <div className="max-w-6xl mx-auto text-center">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
