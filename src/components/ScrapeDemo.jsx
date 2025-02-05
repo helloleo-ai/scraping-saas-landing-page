@@ -9,14 +9,14 @@ const exampleUrls = [
 ]
 
 const mockData = [
-  { url: 'https://example.com/electronics/smartphone-x12', price: '$599.99', stock: 'In Stock' },
-  { url: 'https://example.com/electronics/wireless-earbuds', price: '$79.99', stock: 'Low Stock' },
-  { url: 'https://example.com/electronics/laptop-pro', price: '$1,299.99', stock: 'Out of Stock' },
-  { url: 'https://example.com/home/smart-thermostat', price: '$149.99', stock: 'In Stock' },
-  { url: 'https://example.com/home/robot-vacuum', price: '$249.99', stock: 'In Stock' },
-  { url: 'https://example.com/accessories/phone-case', price: '$24.99', stock: 'Low Stock' },
-  { url: 'https://example.com/wearables/fitness-tracker', price: '$89.99', stock: 'In Stock' },
-  { url: 'https://example.com/gaming/console-bundle', price: '$449.99', stock: 'Out of Stock' }
+  { url: 'https://example.com/electronics/smartphone-x12', price: '$599.99', stock: 'In Stock', rating: '4.5/5', reviews: 128, lastUpdated: '2m ago', category: 'Electronics' },
+  { url: 'https://example.com/electronics/wireless-earbuds', price: '$79.99', stock: 'Low Stock', rating: '4.2/5', reviews: 89, lastUpdated: '5m ago', category: 'Electronics' },
+  { url: 'https://example.com/electronics/laptop-pro', price: '$1,299.99', stock: 'Out of Stock', rating: '4.8/5', reviews: 256, lastUpdated: '12m ago', category: 'Electronics' },
+  { url: 'https://example.com/home/smart-thermostat', price: '$149.99', stock: 'In Stock', rating: '4.3/5', reviews: 67, lastUpdated: '18m ago', category: 'Smart Home' },
+  { url: 'https://example.com/home/robot-vacuum', price: '$249.99', stock: 'In Stock', rating: '4.6/5', reviews: 183, lastUpdated: '25m ago', category: 'Smart Home' },
+  { url: 'https://example.com/accessories/phone-case', price: '$24.99', stock: 'Low Stock', rating: '4.1/5', reviews: 42, lastUpdated: '31m ago', category: 'Accessories' },
+  { url: 'https://example.com/wearables/fitness-tracker', price: '$89.99', stock: 'In Stock', rating: '4.4/5', reviews: 156, lastUpdated: '45m ago', category: 'Wearables' },
+  { url: 'https://example.com/gaming/console-bundle', price: '$449.99', stock: 'Out of Stock', rating: '4.7/5', reviews: 298, lastUpdated: '1h ago', category: 'Gaming' }
 ]
 
 export default function ScrapeDemo() {
@@ -82,17 +82,33 @@ export default function ScrapeDemo() {
                 <table className="table w-full">
                   <thead>
                     <tr>
+                      <th>Category</th>
                       <th>URL</th>
                       <th>Price</th>
-                      <th>Stock Status</th>
+                      <th>Stock</th>
+                      <th>Rating</th>
+                      <th>Reviews</th>
+                      <th>Updated</th>
                     </tr>
                   </thead>
                   <tbody>
                     {results.map((item, index) => (
                       <tr key={index}>
+                        <td>{item.category}</td>
                         <td className="truncate max-w-xs">{item.url}</td>
                         <td>{item.price}</td>
-                        <td>{item.stock}</td>
+                        <td>
+                          <span className={`badge ${
+                            item.stock === 'In Stock' ? 'badge-success' : 
+                            item.stock === 'Low Stock' ? 'badge-warning' : 
+                            'badge-error'
+                          } badge-sm`}>
+                            {item.stock}
+                          </span>
+                        </td>
+                        <td>{item.rating}</td>
+                        <td>{item.reviews}</td>
+                        <td>{item.lastUpdated}</td>
                       </tr>
                     ))}
                   </tbody>
