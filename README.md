@@ -4,7 +4,7 @@ A modern, responsive landing page template built with React, Vite, and TailwindC
 
 [Live Demo](https://github.com/helloleo-ai/scraping-saas-landing-page)
 
-![Screenshot of the landing page](screenshot.png)
+![Screenshot of the landing page](https://terros.io/wp-content/uploads/2025/02/scraping-landing-page.png)
 
 ## Features
 
