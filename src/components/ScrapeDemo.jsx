@@ -38,9 +38,8 @@ export default function ScrapeDemo() {
     <section className="py-16 bg-base-200">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8">Try It Now</h2>
-        <div className={`mx-auto ${results ? 'max-w-6xl' : 'max-w-2xl'}`}>
-          <div className={`${results ? 'grid grid-cols-1 md:grid-cols-2 gap-8' : ''}`}>
-            <div className="space-y-6">
+        <div className="mx-auto max-w-6xl">
+          <div className="space-y-8">
               <div className="flex flex-wrap gap-2">
                 {exampleUrls.map((exampleUrl, index) => (
                   <button
@@ -71,12 +70,10 @@ export default function ScrapeDemo() {
                   </button>
                 </div>
               </form>
-            </div>
-
             {results && (
               <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 className="overflow-x-auto bg-base-100 rounded-lg shadow-lg p-4"
               >
                 <table className="table w-full">
