@@ -94,41 +94,42 @@ export default function ScrapeDemo() {
                 </div>
                 
                 <div className="bg-base-100 rounded-lg shadow-lg p-4">
-                <table className="table w-full">
-                  <thead>
-                    <tr>
-                      <th>Category</th>
-                      <th>URL</th>
-                      <th>Price</th>
-                      <th>Stock</th>
-                      <th>Rating</th>
-                      <th>Reviews</th>
-                      <th>Updated</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {results.map((item, index) => (
-                      <tr key={index}>
-                        <td>{item.category}</td>
-                        <td className="truncate max-w-xs">{item.url}</td>
-                        <td>{item.price}</td>
-                        <td>
-                          <span className={`badge ${
-                            item.stock === 'In Stock' ? 'badge-success' : 
-                            item.stock === 'Low Stock' ? 'badge-warning' : 
-                            'badge-error'
-                          } badge-sm`}>
-                            {item.stock}
-                          </span>
-                        </td>
-                        <td>{item.rating}</td>
-                        <td>{item.reviews}</td>
-                        <td>{item.lastUpdated}</td>
+                {viewMode === 'table' && (
+                  <table className="table w-full">
+                    <thead>
+                      <tr>
+                        <th>Category</th>
+                        <th>URL</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Rating</th>
+                        <th>Reviews</th>
+                        <th>Updated</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-                }
+                    </thead>
+                    <tbody>
+                      {results.map((item, index) => (
+                        <tr key={index}>
+                          <td>{item.category}</td>
+                          <td className="truncate max-w-xs">{item.url}</td>
+                          <td>{item.price}</td>
+                          <td>
+                            <span className={`badge ${
+                              item.stock === 'In Stock' ? 'badge-success' : 
+                              item.stock === 'Low Stock' ? 'badge-warning' : 
+                              'badge-error'
+                            } badge-sm`}>
+                              {item.stock}
+                            </span>
+                          </td>
+                          <td>{item.rating}</td>
+                          <td>{item.reviews}</td>
+                          <td>{item.lastUpdated}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
                 
                 {viewMode === 'chart' && (
                   <div className="h-[400px] w-full">
