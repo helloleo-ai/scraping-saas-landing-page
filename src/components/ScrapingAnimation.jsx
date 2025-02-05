@@ -7,9 +7,9 @@ export default function ScrapingAnimation() {
         <motion.path
           d="M 0,50 Q 25,45 50,50 T 100,50"
           stroke="currentColor"
-          strokeWidth="0.2"
+          strokeWidth="0.5"
           fill="none"
-          className="text-primary/10"
+          className="text-primary/20"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ 
             pathLength: 1,
@@ -21,7 +21,7 @@ export default function ScrapingAnimation() {
             ]
           }}
           transition={{
-            duration: 5,
+            duration: 3,
             repeat: Infinity,
             ease: "easeInOut"
           }}
@@ -29,9 +29,9 @@ export default function ScrapingAnimation() {
         <motion.path
           d="M 0,30 Q 25,25 50,30 T 100,30"
           stroke="currentColor"
-          strokeWidth="0.2"
+          strokeWidth="0.5"
           fill="none"
-          className="text-secondary/10"
+          className="text-secondary/20"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ 
             pathLength: 1,
@@ -52,9 +52,9 @@ export default function ScrapingAnimation() {
         <motion.path
           d="M 0,70 Q 25,65 50,70 T 100,70"
           stroke="currentColor"
-          strokeWidth="0.2"
+          strokeWidth="0.5"
           fill="none"
-          className="text-primary/10"
+          className="text-primary/20"
           initial={{ pathLength: 0, opacity: 0 }}
           animate={{ 
             pathLength: 1,
@@ -66,7 +66,7 @@ export default function ScrapingAnimation() {
             ]
           }}
           transition={{
-            duration: 6,
+            duration: 5,
             repeat: Infinity,
             ease: "easeInOut",
             delay: 1
