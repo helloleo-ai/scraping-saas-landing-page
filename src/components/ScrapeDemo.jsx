@@ -95,7 +95,8 @@ export default function ScrapeDemo() {
                 
                 <div className="bg-base-100 rounded-lg shadow-lg p-4">
                 {viewMode === 'table' && (
-                  <table className="table w-full">
+                  <div className="overflow-x-auto">
+                    <table className="table table-pin-rows table-pin-cols">
                     <thead>
                       <tr>
                         <th>Category</th>
@@ -129,6 +130,7 @@ export default function ScrapeDemo() {
                       ))}
                     </tbody>
                   </table>
+                  </div>
                 )}
                 
                 {viewMode === 'chart' && (
