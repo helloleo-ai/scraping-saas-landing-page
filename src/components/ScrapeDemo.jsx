@@ -33,64 +33,67 @@ export default function ScrapeDemo() {
     <section className="py-16 bg-base-200">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-8">Try It Now</h2>
-        <div className="max-w-2xl mx-auto">
-          <div className="mb-4 flex flex-wrap gap-2">
-            {exampleUrls.map((exampleUrl, index) => (
-              <button
-                key={index}
-                type="button"
-                className="btn btn-sm btn-outline"
-                onClick={() => setUrl(exampleUrl)}
-              >
-                Try {exampleUrl.split('/')[2]}
-              </button>
-            ))}
-          </div>
-          <form onSubmit={handleSubmit} className="mb-8">
-            <div className="flex gap-2">
-              <input
-                type="text"
-                placeholder="Enter website URL to scrape..."
-                className="input input-bordered flex-1"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-              />
-              <button 
-                type="submit" 
-                className="btn btn-primary"
-                disabled={isLoading}
-              >
-                {isLoading ? <FaSpinner className="animate-spin" /> : 'Scrape'}
-              </button>
+        <div className={`mx-auto ${results ? 'max-w-6xl' : 'max-w-2xl'}`}>
+          <div className={`${results ? 'grid grid-cols-1 md:grid-cols-2 gap-8' : ''}`}>
+            <div className="space-y-6">
+              <div className="flex flex-wrap gap-2">
+                {exampleUrls.map((exampleUrl, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    className="btn btn-sm btn-outline"
+                    onClick={() => setUrl(exampleUrl)}
+                  >
+                    Try {exampleUrl.split('/')[2]}
+                  </button>
+                ))}
+              </div>
+              <form onSubmit={handleSubmit}>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter website URL to scrape..."
+                    className="input input-bordered flex-1"
+                    value={url}
+                    onChange={(e) => setUrl(e.target.value)}
+                  />
+                  <button 
+                    type="submit" 
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? <FaSpinner className="animate-spin" /> : 'Scrape'}
+                  </button>
+                </div>
+              </form>
             </div>
-          </form>
 
-          {results && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="overflow-x-auto"
-            >
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th>URL</th>
-                    <th>Price</th>
-                    <th>Stock Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {results.map((item, index) => (
-                    <tr key={index}>
-                      <td className="truncate max-w-xs">{item.url}</td>
-                      <td>{item.price}</td>
-                      <td>{item.stock}</td>
+            {results && (
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                className="overflow-x-auto bg-base-100 rounded-lg shadow-lg p-4"
+              >
+                <table className="table w-full">
+                  <thead>
+                    <tr>
+                      <th>URL</th>
+                      <th>Price</th>
+                      <th>Stock Status</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
-            </motion.div>
-          )}
+                  </thead>
+                  <tbody>
+                    {results.map((item, index) => (
+                      <tr key={index}>
+                        <td className="truncate max-w-xs">{item.url}</td>
+                        <td>{item.price}</td>
+                        <td>{item.stock}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </motion.div>
+            )}
         </div>
       </div>
     </section>
